@@ -1,3 +1,4 @@
+import streamlit as st
 from langchain_ollama.llms import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
@@ -32,16 +33,18 @@ def parse_with_ollama(dom_content, parse_description):
     
     parsed_results = []
     
-    # Iterate over each chunk of DOM content
-    for i, chunk in enumerate(dom_content, start = 1):
-        # Invoke the model with the current chunk and description
-        response = chain.invoke({"dom_content":chunk,"parse_description": parse_description})
-        
-        # Log the progress of parsing
-        print(f"Parsed batch {i} of {len(dom_content)}")
-        
-        # Append the response to the results
-        parsed_results.append(response)
+    # Display a spinner while parsing the content
+    with st.spinner("Parsing the content..."):
+        # Iterate over each chunk of DOM content
+        for i, chunk in enumerate(dom_content, start=1):
+            # Invoke the model with the current chunk and description
+            response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
+            
+            # Log the progress of parsing
+            print(f"Parsed batch {i} of {len(dom_content)}")
+            
+            # Append the response to the results
+            parsed_results.append(response)
         
     # Join all parsed results into a single string
     return "\n".join(parsed_results)
