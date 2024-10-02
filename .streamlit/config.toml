@@ -4,3 +4,8 @@ backgroundColor = "#787791"
 secondaryBackgroundColor = "#53665B" 
 textColor = "#000000"
 font = "sans serif"
+
+[server]
+#serverAddress = "172.25.16.1"
+#address = "192.168.254.11"
+#port = 8501
