@@ -12,8 +12,14 @@ url = st.text_input("Enter Website URL:")
 if st.button("Scrape"):
     st.write("scraping the site")
     
+    # Initialize a progress bar
+    progress_bar = st.progress(0)
+    
     # Scrape the website content
     result = scrape_website(url)
+    
+    # Update the progress bar to indicate completion
+    progress_bar.progress(100)
     
     # Extract the body content from the HTML
     body_content = extract_body_content(result)
