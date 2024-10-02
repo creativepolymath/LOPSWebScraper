@@ -3,7 +3,7 @@ from scrape import (scrape_website, split_dom_content, clean_body_content, extra
 from parse import parse_with_ollama
 
 
-st.title("AI Web Scraper")
+st.title("Python AI Web Scraper")
 url = st.text_input("Enter Website URL:")
 
 if st.button("Scrape"):
