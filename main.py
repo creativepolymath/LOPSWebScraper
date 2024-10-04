@@ -37,7 +37,7 @@ if "dom_content" in st.session_state:
     # Check if the "Parse" button is pressed
     if st.button("Parse"):
         if parse_description:
-            st.write("parsing the content")
+            #st.write("parsing the content")
             
             # Split the DOM content into chunks
             dom_chunks = split_dom_content(st.session_state.dom_content)
