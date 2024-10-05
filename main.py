@@ -2,6 +2,8 @@ import streamlit as st
 from scrape import (scrape_website, split_dom_content, clean_body_content, extract_body_content)
 from parse import parse_with_ollama
 
+st.logo("./assets/PolymathTriangle.png", size='large', link=None )
+
 # Set the title of the Streamlit app
 st.title("Python AI Web Scraper")
 
@@ -9,7 +11,7 @@ st.title("Python AI Web Scraper")
 url = st.text_input("Enter Website URL:")
 
 # Check if the "Scrape" button is pressed
-if st.button("Scrape"):
+if st.button("Scrape", ):
     st.write("scraping the site")
     
     # Display a spinner while scraping the website content
