@@ -1,6 +1,6 @@
 import streamlit as st
-from langchain_community.llms import Ollama
-#from lang_chain_ollama.llms import OllamaLLM
+#from langchain_community.llms import Ollama
+from lang_chain_ollama.llms import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
 # Define a template for the parsing instructions
@@ -15,8 +15,8 @@ template = (
 )
 
 # Initialize the Ollama language model with a specific version
-model = Ollama(model="llama3.2")
-#model = OllamaLLM(model="llama3.1")
+#model = Ollama(model="llama3.2")
+model = OllamaLLM(model="llama3.2")
 
 def parse_with_ollama(dom_content, parse_description):
     """
