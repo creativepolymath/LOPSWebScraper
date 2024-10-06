@@ -1,6 +1,6 @@
 import streamlit as st
 from langchain_community.llms import Ollama
-#from lang_chain_ollama.llms import OllamaLLM
+from langchain_ollama.llms import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
 # Define a template for the parsing instructions
@@ -12,11 +12,12 @@ template = (
     "3. **Empty Response:** If no information matches the description, return an empty string ('')."
     "4. **Direct Data Only:** Your output should contain only the data that is explicitly requested, with no other text."
     "5. **Numerical Data Priority:** Dates, numbers, and quantitative information are important."
+    "6. **Table Design:** If the information is tabular, format it as a table with appropriate headers."
 )
 
 # Initialize the Ollama language model with a specific version
-model = Ollama(model="llama3.2")
-#model = OllamaLLM(model="llama3.1")
+#model = Ollama(model="llama3.2")
+model = OllamaLLM(model="llama3.2")
 
 def parse_with_ollama(dom_content, parse_description):
     """
