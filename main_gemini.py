@@ -1,6 +1,6 @@
 import streamlit as st
 from scrape import (scrape_website, split_dom_content, clean_body_content, extract_body_content)
-from langchain_community.llms import Gemini
+from langchain_gemini.llms import Gemini
 from langchain_core.prompts import ChatPromptTemplate
 
 st.logo("./assets/PolymathTriangle.png", size='large', link=None )
@@ -46,7 +46,7 @@ if "dom_content" in st.session_state:
             dom_chunks = split_dom_content(st.session_state.dom_content)
             
             # Initialize the Gemini language model
-            model = Gemini(model="gemini3.2")
+            model = Gemini(model="gemini-pro")
             
             # Define a template for the parsing instructions
             template = (
