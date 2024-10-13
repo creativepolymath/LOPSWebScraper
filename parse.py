@@ -12,12 +12,13 @@ template = (
     "3. **Empty Response:** If no information matches the description, return an empty string ('')."
     "4. **Direct Data Only:** Your output should contain only the data that is explicitly requested, with no other text."
     "5. **Numerical Data Priority:** Dates, numbers, and quantitative information are important."
-    "6. **Table Design:** If the information is tabular, format it as a table with appropriate headers."
+    "6. **Table Design:** Format table with appropriate headers with each row representing a date, and the columns for winning numbers."
+    "7. **CSV Ready:** Output should be in CSV format, with each row representing a date, and the columns for winning numbers."
 )
 
 # Initialize the Ollama language model with a specific version
 #model = OllamaLLM(model="llama3.2")
-model = Ollama(model="llama3.2")
+model = Ollama(model="qwen2.5-coder")
 
 def parse_with_ollama(dom_content, parse_description):
     """

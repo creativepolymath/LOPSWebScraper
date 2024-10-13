@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from scrape import (scrape_website, split_dom_content, clean_body_content, extract_body_content)
 from parse import parse_with_ollama
 
@@ -47,6 +48,25 @@ if "dom_content" in st.session_state:
             # Parse the content using the provided description
             result = parse_with_ollama(dom_chunks, parse_description)
             
-            # Display the parsing result
+                    # Display the parsing result
             st.write(result)
             
+                    # Convert the result to a pandas DataFrame, handling different formats
+            if isinstance(result, list):
+                if all(isinstance(item, dict) for item in result):
+                    df = pd.DataFrame(result)
+                else:
+                    df = pd.DataFrame(result, columns=['Data'])
+            elif isinstance(result, dict):
+                    df = pd.DataFrame([result])
+            else:
+                    df = pd.DataFrame([{'Data': str(result)}])
+            
+                    # Add a download button for the CSV file
+                    csv = df.to_csv(index=False)
+            st.download_button(
+                        label="Download data as CSV",
+                        data=csv,
+                        file_name="parsed_data.csv",
+                        mime="text/csv",
+                    )            
