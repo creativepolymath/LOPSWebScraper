@@ -9,3 +9,6 @@ Import functions from pandas, streamlit, and created functions
 Streamlit used for basic i/o functions and ui theming
 ## Ollama Self Hosted LLM
 Local network self-hosted Ollama server running the latest [Llama3.2:3b](https://ollama.com/library/llama3.2) LLM
+
+### Download the latest Chromedriver.exe
+[Chrome Developer Downloads](https://developer.chrome.com/docs/chromedriver/downloads)
