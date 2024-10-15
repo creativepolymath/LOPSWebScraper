@@ -2,4 +2,5 @@
 _bkup
 *.pyc
 notes.md
-chromedriver.exe
+/__pycache__/*.pyc
+/chromedriver.exe
