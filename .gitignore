@@ -2,3 +2,5 @@
 _bkup
 *.pyc
 notes.md
+.env
+chromedriver.exe
