@@ -6,14 +6,15 @@ from parse import parse_with_ollama
 st.logo("./assets/PolymathTriangle.png", size='large', link=None )
 
 # Set the title of the Streamlit app
-st.title("Python AI Web Scraper")
+st.title("L.O.P.S. - Web Scraper")
+'Web scraping with L.angchain, O.llama, P.ython, and S.treamlit'
 
 # Input field for the user to enter the website URL
 url = st.text_input("Enter Website URL:")
 
 # Check if the "Scrape" button is pressed
 if st.button("Scrape", ):
-    st.write("scraping the site")
+    #st.write("scraping the site")
     
     # Display a spinner while scraping the website content
     with st.spinner("Scraping the website..."):
